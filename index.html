@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TEAM YANGUERITO VIP</title>
+<link rel="manifest" href="/manifest.json">
 
+<meta name="theme-color" content="#7d3d3d">
+
+<link rel="apple-touch-icon" href="/logo.png">
 <style>
 *{
 margin:0;
@@ -98,6 +102,12 @@ window.location.href =
 "https://script.google.com/macros/s/AKfycbzBS-OzJLN1Od51BMECULB0iWg6mDahGPfT5FMPthQYWAESfRBcEFaCEfeLw_fEHmK-Ng/exec";
 }, 3500);
 </script>
-
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
+</script>
 </body>
 </html>

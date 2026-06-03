@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>TEAM YANGUERITO VIP</title>
 
 <style>
@@ -32,7 +31,6 @@ padding:20px;
 width:180px;
 max-width:80%;
 margin-bottom:20px;
-animation: aparecer 1s ease;
 }
 
 .title{
@@ -64,27 +62,9 @@ animation:girar 1s linear infinite;
 margin:auto;
 }
 
-iframe{
-width:100%;
-height:100vh;
-border:none;
-display:none;
-}
-
 @keyframes girar{
 100%{
 transform:rotate(360deg);
-}
-}
-
-@keyframes aparecer{
-from{
-opacity:0;
-transform:scale(0.9);
-}
-to{
-opacity:1;
-transform:scale(1);
 }
 }
 </style>
@@ -92,7 +72,7 @@ transform:scale(1);
 
 <body>
 
-<div class="loader-container" id="loader">
+<div class="loader-container">
 
 <img src="logo.png" class="logo-img">
 
@@ -112,15 +92,10 @@ Conectando con sistema de puntos...
 
 </div>
 
-<iframe
-id="appFrame"
-src="https://script.google.com/macros/s/AKfycbzBS-OzJLN1Od51BMECULB0iWg6mDahGPfT5FMPthQYWAESfRBcEFaCEfeLw_fEHmK-Ng/exec">
-</iframe>
-
 <script>
 setTimeout(() => {
-document.getElementById("loader").style.display = "none";
-document.getElementById("appFrame").style.display = "block";
+window.location.href =
+"https://script.google.com/macros/s/AKfycbzBS-OzJLN1Od51BMECULB0iWg6mDahGPfT5FMPthQYWAESfRBcEFaCEfeLw_fEHmK-Ng/exec";
 }, 3500);
 </script>
 

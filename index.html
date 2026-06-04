@@ -2,14 +2,13 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEAM YANGUERITO VIP</title>
-<link rel="manifest" href="/manifest.json">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#7d3d3d">
+<title>Team Yanguerito VIP</title>
 
-<link rel="apple-touch-icon" href="/logo.png">
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -18,96 +17,281 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#f7f7f7;
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 overflow:hidden;
+
+background:
+linear-gradient(
+135deg,
+#050505,
+#101010,
+#181818,
+#0d0d0d
+);
+
+position:relative;
 }
 
-.loader-container{
+/* glow rojo premium */
+
+body::before{
+content:"";
+position:absolute;
+width:420px;
+height:420px;
+background:
+radial-gradient(
+circle,
+rgba(224,18,42,.22),
+transparent 70%
+);
+
+top:50%;
+left:50%;
+
+transform:
+translate(-50%,-50%);
+
+filter:blur(20px);
+z-index:0;
+}
+
+.card{
+width:92%;
+max-width:420px;
+padding:35px 28px;
 text-align:center;
-padding:20px;
+position:relative;
+z-index:1;
 }
 
-.logo-img{
-width:180px;
-max-width:80%;
-margin-bottom:20px;
+/* escudo */
+
+.logo{
+width:210px;
+margin:0 auto 18px auto;
+display:block;
+
+animation:
+pulseLogo 2s ease-in-out infinite;
+
+filter:
+drop-shadow(
+0 0 22px
+rgba(255,0,55,.45)
+);
 }
 
 .title{
-font-size:48px;
-font-weight:bold;
-color:#7d3d3d;
+font-size:28px;
+font-weight:900;
+color:#fff;
+line-height:1.2;
 margin-bottom:10px;
 }
 
 .subtitle{
-font-size:28px;
-color:#666;
-margin-bottom:25px;
-}
-
-.loading-text{
-margin-top:20px;
-color:#999;
 font-size:18px;
+font-weight:600;
+color:#bdbdbd;
+margin-bottom:28px;
 }
 
-.spinner{
-width:55px;
-height:55px;
-border:6px solid #ddd;
-border-top:6px solid #7d3d3d;
-border-radius:50%;
-animation:girar 1s linear infinite;
-margin:auto;
+/* barra loading */
+
+.loading-bar{
+width:100%;
+height:14px;
+background:#232323;
+border-radius:50px;
+overflow:hidden;
+position:relative;
+margin-bottom:24px;
 }
 
-@keyframes girar{
+.barra-loading{
+position:absolute;
+top:0;
+left:-35%;
+width:35%;
+height:100%;
+border-radius:50px;
+
+background:
+linear-gradient(
+90deg,
+#8f0d1e,
+#ff0037,
+#ff4d6d
+);
+
+box-shadow:
+0 0 18px
+rgba(255,0,55,.8);
+
+animation:
+moverBarra .9s linear infinite;
+}
+
+/* mensajes */
+
+.mensaje{
+font-size:21px;
+font-weight:700;
+color:#f0f0f0;
+line-height:1.45;
+min-height:70px;
+padding:0 12px;
+transition:.3s ease;
+}
+
+.footer{
+margin-top:14px;
+font-size:14px;
+color:#7d7d7d;
+}
+
+/* animaciones */
+
+@keyframes moverBarra{
+
+0%{
+left:-35%;
+}
+
 100%{
-transform:rotate(360deg);
+left:100%;
 }
 }
+
+@keyframes pulseLogo{
+
+0%{
+transform:scale(1);
+opacity:.85;
+}
+
+50%{
+transform:scale(1.04);
+opacity:1;
+}
+
+100%{
+transform:scale(1);
+opacity:.85;
+}
+}
+
+@media(max-width:480px){
+
+.logo{
+width:190px;
+}
+
+.title{
+font-size:24px;
+}
+
+.mensaje{
+font-size:19px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="loader-container">
+<div class="card">
 
-<img src="logo.png" class="logo-img">
+<img
+class="logo"
+src="https://i.imgur.com/0ZsJ9hD.png"
+alt="Team Yanguerito">
 
 <div class="title">
+BIENVENIDO A<br>
 TEAM YANGUERITO VIP
 </div>
 
 <div class="subtitle">
-Iniciando programa VIP...
+Conectando con sistema de beneficios VIP...
 </div>
 
-<div class="spinner"></div>
+<div class="loading-bar">
+<div class="barra-loading"></div>
+</div>
 
-<div class="loading-text">
-Conectando con sistema de puntos...
+<div
+id="mensajeCarga"
+class="mensaje">
+
+🚀 No manejes solo,
+crece con tu equipo
+
+</div>
+
+<div class="footer">
+🔒 Validando acceso al sistema VIP
 </div>
 
 </div>
 
 <script>
-setTimeout(() => {
+
+const mensajes = [
+
+"🚀 No manejes solo,<br>crece con tu equipo",
+
+"👥 ¿Conoces conductores de Yango sin Partner?<br>Invítalos",
+
+"🏆 Los conductores inteligentes<br>crecen en equipo"
+
+];
+
+let index = 0;
+
+setInterval(()=>{
+
+const caja =
+document.getElementById(
+"mensajeCarga"
+);
+
+caja.style.opacity = "0";
+
+setTimeout(()=>{
+
+index++;
+
+if(index >= mensajes.length){
+index = 0;
+}
+
+caja.innerHTML =
+mensajes[index];
+
+caja.style.opacity =
+"1";
+
+},250);
+
+},1600);
+
+/* redirección */
+
+setTimeout(()=>{
+
 window.location.href =
 "https://script.google.com/macros/s/AKfycbzALMnvzTu2Hyjf0uYaX8NdBcF9RJWRM0UOxZmlFI4r-1IVpJvMysyHJT1Jivp_-7xJSw/exec";
-}, 3500);
+
+},5200);
+
 </script>
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js');
-  });
-}
-</script>
+
 </body>
 </html>

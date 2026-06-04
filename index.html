@@ -193,68 +193,80 @@ opacity:.85;
 
 @media(max-width:480px){
 .logo{
-width:92vw;
-max-width:420px;
-margin:0 auto 15px auto;
-}
-.logo{
-width:92vw;
-max-width:420px;
+width:95%;
+max-width:500px;
 display:block;
-margin:0 auto 30px auto;
-border-radius:12px;
+margin:0 auto 20px auto;
+object-fit:contain;
 
 animation:
 pulseLogo 2s ease-in-out infinite;
 
 filter:
 drop-shadow(
-0 0 22px
-rgba(255,0,55,.45)
+0 0 28px rgba(255,0,55,.35)
 );
 }
 
 .title{
-font-size:24px;
+font-size:32px;
 }
 
 .mensaje{
-font-size:19px;
+font-size:20px;
 }
 
 }
 
 .title{
-font-size:42px;
+font-size:34px;
 font-weight:900;
 text-align:center;
 color:#ffffff;
-line-height:1.05;
-margin-top:15px;
+line-height:1.1;
+margin-top:10px;
 margin-bottom:18px;
-opacity:1;
+opacity:1 !important;
+
 text-shadow:
-0 0 10px rgba(255,255,255,.15),
+0 0 12px rgba(255,255,255,.15),
 0 0 30px rgba(255,0,55,.20);
+
 position:relative;
-z-index:99;
+z-index:999;
+}
+.subtitle{
+font-size:22px;
+font-weight:600;
+color:#ffffff;
+margin-bottom:24px;
+text-align:center;
+opacity:1 !important;
+
+text-shadow:
+0 0 10px rgba(255,255,255,.08);
+
+position:relative;
+z-index:999;
 }
 
 .mensaje{
 font-size:24px;
-font-weight:600;
+font-weight:700;
 text-align:center;
-color:#d9d9d9;
-opacity:1;
-line-height:1.4;
+color:#ffffff;
+opacity:1 !important;
+line-height:1.45;
 margin-top:10px;
+min-height:70px;
+
 text-shadow:
-0 0 8px rgba(255,255,255,.08);
+0 0 8px rgba(255,255,255,.10);
+
 position:relative;
-z-index:99;
+z-index:999;
 }
 
-}
 
 </style>
 </head>
@@ -265,14 +277,6 @@ z-index:99;
 
 <img
 class="logo"
-style="
-width:88%;
-max-width:620px;
-display:block;
-margin:25px auto 25px auto;
-object-fit:contain;
-filter:drop-shadow(0 0 25px rgba(255,0,55,.25));
-"
 src="./logo.png"
 alt="Team Yanguerito">
 
